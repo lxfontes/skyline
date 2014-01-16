@@ -16,8 +16,9 @@ var handle_data = function(data) {
 
     for (i in data) {
         metric = data[i];
-        name = metric[1]
-        var src = GRAPH_URL.replace('%s', name);
+        name = metric[1];
+        threshold = metric[0];
+        var src = GRAPH_URL.replace('%s', name).replace('%d', threshold);
         // Add a space after the metric name to make each unique
         to_append = "<div class='sub'><a target='_blank' href='" + src + "'><div class='name'>" + name + " </div></a>&nbsp;&nbsp;"
         if (OCULUS_HOST != ''){
